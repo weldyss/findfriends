@@ -11,10 +11,17 @@ class User < ActiveRecord::Base
   def friends_nearby
     near = []
     self.friends.each do |friend|
-      if GeoCoder::Calculations.distance_between(friend.full_address, self.full_address) < 30
+      if User::GeoCoder::Calculations.distance_between(friend.full_address, self.full_address) < 30
         near << friend
         return near if near.size == 3
       end
+    end
+  end
+end
+
+module Calculations
+  module GeoCoder
+    class User
     end
   end
 end

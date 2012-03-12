@@ -1,0 +1,7 @@
+<h1>Editing user</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.text_field :name %>
+  <%= f.select :friend_ids, User.find(:all), multiple: true  %>
+  <%= f.submit "Salvar" %>
+<% end %>

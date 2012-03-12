@@ -2,6 +2,6 @@
 
 <%= form_for @user do |f| %>
   <%= f.text_field :name %>
-  <%= f.select :friend_ids, User.find(:all), multiple: true  %>
+  <%= f.collection_select :friend_ids, User.find(:all), :id, :name, multiple: true  %>
   <%= f.submit "Salvar" %>
 <% end %> 

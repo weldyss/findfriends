@@ -1,0 +1,31 @@
+<h1>Todos os usuários</h1>
+
+<%= link_to "New user", new_user_path %>
+<% if @users.count > 0 %>
+  <table>
+    <caption>Usuários do sistema</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Full Address</th>
+        <th>Friends</th>
+      </tr>
+    </thead>
+
+    <tfoot>
+      <tr colspan="3">
+        <td>Total de usuários: <%= @users.count %></td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @users.each do |u| %>
+        <tr>
+          <td><%= u.name %></td>
+          <td><%= u.full_address %></td>
+          <td><%= u.friends.map {|f| f.name}.join(", ") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

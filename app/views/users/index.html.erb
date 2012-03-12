@@ -25,7 +25,7 @@
           <td><%= u.name %></td>
           <td><%= u.full_address %></td>
           <td><%= u.friends.map {|f| f.name}.join(", ") %></td>
-          <td><%= nearby_friends(u) %></td>
+          <td><%= u.friends_nearby.map {|f| f.name}.join(", ") %></td>
         </tr>
       <% end %>
     </tbody>

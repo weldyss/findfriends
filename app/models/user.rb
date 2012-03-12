@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
   def friends_nearby
     near = []
     self.friends.each do |friend|
-      if self.distance_from(friend.full_address, self.full_address) < 30
+      if self.distance_from(friend) < 20
         near << friend
-        return near if near.size == 3
       end
     end
+    near
   end
 end

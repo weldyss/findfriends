@@ -20,6 +20,7 @@ describe User do
   end
 
   it "should be friends nearby" do
+    pending "preciso chamar externamente o Calculations do Geocoder."
     user = User.create(name: "Weldys", full_address: "Avenida Jeronimo de Albuquerque, Sao Luis, MA, Brazil")
     friend1 = User.create(name: "Amigo", full_address: "Avenida Daniel de La Touche, Sao Luis, MA, Brazil")
     friend2 = User.create(name: "Amigo longe", full_address: "1500 Sugar Bowl Dr, New Orleans, LA 70112, USA")

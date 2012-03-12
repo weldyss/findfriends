@@ -3,4 +3,17 @@ class User < ActiveRecord::Base
 
   has_many :friendships
   has_many :friends, through: :friendships
+
+  geocoded_by :full_address
+
+  after_validation :geocode 
+
+  def friends_nearby
+    near = []
+    self.friends.each do |friend|
+      if GeoCoder::Calculations.distance_between(friend.full_address, self.full_address) < 30
+        near << friend
+      end
+    end
+  end
 end
